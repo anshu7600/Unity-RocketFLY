@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rb;
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 100;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem mainBooster;
+    [SerializeField] ParticleSystem leftBooster;
+    [SerializeField] ParticleSystem rightBooster;
 
-    // Start is called before the first frame update
+    Rigidbody rb;
+    AudioSource audioSource;
+
     void Start()
     {   
         rb = GetComponent<Rigidbody>();    
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update() 
     {
         ProcessThrust(); 
@@ -23,20 +29,44 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey("up"))
         { 
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(mainEngine);
+            }
             rb.AddRelativeForce(Vector3.up * mainThrust  * Time.deltaTime); 
+            if (!mainBooster.isPlaying)
+            {
+                mainBooster.Play();
+            }
+        }
+        else 
+        {
+            mainBooster.Stop();
+            audioSource.Stop();
         }
     }
 
     void ProcessRotation()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey("left"))
         {
+            leftBooster.Stop();
+            if (!rightBooster.isPlaying)
+            {
+                rightBooster.Play();   
+            }
             ApplyRotation(rotationSpeed);
+            
         }        
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey("right"))
         {
+                        rightBooster.Stop();
+            if (!leftBooster.isPlaying)
+            {
+                leftBooster.Play();
+            }
             ApplyRotation(-rotationSpeed);
         }
     }

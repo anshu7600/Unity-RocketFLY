@@ -5,11 +5,11 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip successSound;
     [SerializeField] AudioClip deathSound;
-
     [SerializeField] ParticleSystem successParticals;
     [SerializeField] ParticleSystem deathParticals;
     [SerializeField] float delaySeconds = 1f;
     AudioSource audioSource;
+    bool inDebugMode = false;
     bool isTransitioning = false;
  
     void Start()
@@ -18,7 +18,7 @@ public class CollisionHandler : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (isTransitioning != true)
+        if (isTransitioning != true && inDebugMode != true)
         {
             if (other.gameObject.tag == "Fuel")
             {
@@ -71,5 +71,32 @@ public class CollisionHandler : MonoBehaviour
             nextSceneIndex = 0;
         }
         SceneManager.LoadScene(nextSceneIndex);
+    }
+    void NextLevelLoadCheat()
+    {
+        if (Input.GetKey("l"))
+        {
+            LoadNextLevel();
+        }
+    }
+    void NoCollisionCheat()
+    {
+        if (Input.GetKey("c"))
+        {
+            inDebugMode = true;
+        }
+    }
+    void CollisionWorking()
+    {
+        if (Input.GetKey("r"))
+        {
+            inDebugMode = false;
+        }
+    }
+    void Update()
+    {
+        CollisionWorking();
+        NextLevelLoadCheat();
+        NoCollisionCheat();    
     }
 }

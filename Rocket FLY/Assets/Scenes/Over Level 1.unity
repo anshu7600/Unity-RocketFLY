@@ -28,7 +28,7 @@ RenderSettings:
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: a6abbc3ab2021364dbf2e0b0235b1b9d, type: 2}
   m_HaloStrength: 0.5
-  m_FlareStrength: 1
+  m_FlareStrength: 0.177
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
@@ -1785,7 +1785,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.56
+  m_Intensity: 0.54
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2536,13 +2536,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1573997, y: -0, z: -0, w: 0.98753506}
-  m_LocalPosition: {x: 22.81, y: 13.31, z: -22.04}
+  m_LocalRotation: {x: 0.18945834, y: -0, z: -0, w: 0.9818888}
+  m_LocalPosition: {x: 23.9, y: 17.8, z: -31.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 18.112, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.842, y: 0, z: 0}
 --- !u!1001 &1023745708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5648,18 +5648,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3039551431196068587, guid: 18e494b2459b350428f1d2920f20024e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3516211606825281056, guid: 18e494b2459b350428f1d2920f20024e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3516211606825281056, guid: 18e494b2459b350428f1d2920f20024e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3516211606825281056, guid: 18e494b2459b350428f1d2920f20024e, type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

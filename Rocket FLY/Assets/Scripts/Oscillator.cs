@@ -6,6 +6,7 @@ public class Oscillator : MonoBehaviour
 {
     Vector3 startingPosition;
     [SerializeField] Vector3 movementVector;
+    [SerializeField] float secondsToWait;
     float movementFactor;
     [SerializeField] float period = 2f;
 
@@ -26,6 +27,9 @@ public class Oscillator : MonoBehaviour
         movementFactor = (rawSinWave + 1f) / 2f; // recaluclated, to go from 0 to 1, so it is cleaner
 
         Vector3 offset = movementVector * movementFactor;
+        if (Time.time >= secondsToWait)
+        {
         transform.position = startingPosition + offset; 
+        }
     }
 }
